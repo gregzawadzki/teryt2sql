@@ -120,8 +120,10 @@ function array_to_insert ($table, $data, $exclude = array()) {
         if( !in_array($key, $exclude) ) {
             $fields[] = "`$key`";
 			
-			if(is_numeric($data[$key]))
-				$values[] = trim($data[$key]);
+			if($key === 'RODZ_GMI')
+				$values[] = intval($data[$key]);
+			elseif($key === 'MZ')
+				$values[] = ($data[$key] == 1 ? "'nie'" : "'tak'");
 			else
 				$values[] = "'" . addslashes(trim($data[$key])) . "'";
 				//$values[] = "'" . mysql_real_escape_string($data[$key]) . "'";
