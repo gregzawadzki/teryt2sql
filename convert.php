@@ -49,12 +49,13 @@ if(file_exists($dir_xml . 'TERC.xml')) {
 	$xml = simplexml_load_file($dir_xml . 'TERC.xml');
 	foreach($xml->catalog->row as $row){
 		fwrite($fh, array_to_insert('TERC', array(
-			'POW' => $row->col[0],
-			'GMI' => $row->col[1],
-			'RODZ' => $row->col[2],
-			'NAZWA' => $row->col[3],
-			'NAZDOD' => $row->col[4],
-			'STAN_NA' => $row->col[5]
+			'WOJ' => $row->col[0],
+			'POW' => $row->col[1],
+			'GMI' => $row->col[2],
+			'RODZ' => $row->col[3],
+			'NAZWA' => $row->col[4],
+			'NAZDOD' => $row->col[5],
+			'STAN_NA' => $row->col[6]
 		)));
 	}
 		echo 'Zakonczono przetwarzanie TERC.xml'.MYEOL;
